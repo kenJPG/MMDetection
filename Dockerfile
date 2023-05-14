@@ -1,7 +1,5 @@
 FROM pytorch/pytorch:1.13.0-cuda11.6-cudnn8-runtime
 
-WORKDIR /app
-COPY . /app
 RUN  apt-get update && apt-get install -y \
 	gcc \
 	git \
@@ -16,7 +14,6 @@ RUN python -m pip install --upgrade pip \
 	&& mim install mmengine \ 
 	&& mim install "mmcv>=2.0.0" \
 	&& mim install mmdet \
-
 
 CMD /bin/bash
 EXPOSE 3000
